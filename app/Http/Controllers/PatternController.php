@@ -16,7 +16,7 @@ class PatternController extends Controller
     public function index()
     {
         return view ("Pattern.index", [
-            "patterns"=>Pattern::get(),
+            "patterns"=>Pattern::orderBy('date', 'desc')->orderBy('pattern_type_id', 'asc')->get(),
             "pattern_types"=>PatternType::orderBy('id')->get(),
 
         ]);

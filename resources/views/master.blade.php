@@ -20,7 +20,11 @@
 
 
 </head>
-<body>
+<body
+@if (Route::currentRouteName()== "pattern.simple")
+class= "black"
+@endif
+>
 
         @yield('content')
 
