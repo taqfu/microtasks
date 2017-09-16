@@ -1,0 +1,40 @@
+body {
+    background-color:black;
+}
+#clock{
+    font-size:100px; 
+    background-color:black;
+
+    color:white;
+    text-align:center;
+}
+.fail{
+    background-color:red;
+}
+.success{
+    background-color:green;
+}
+.limbo{
+    background-color:grey;
+}
+td{
+    text-align:center;
+}
+td.date{
+    width:100px;
+}
+td.cycle, td.day{
+    width:50px;
+}
+td.status:not(table.simple){
+    width:200px;
+}
+table.simple{
+    margin: 0px auto;
+}
+
+table.simple td{
+    height:50px;
+    width:50px;    
+    border:2px black solid;
+}
