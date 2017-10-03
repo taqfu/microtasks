@@ -17,7 +17,7 @@ Route::get('/', function () {
 Route::get('/pattern/delete/{id}', 'PatternController@delete')->name('pattern.delete');
 Route::get('/pattern/simple', 'PatternController@simpleIndex')->name('pattern.simple');
 Route::post('pattern/row', 'PatternController@newRow')->name('pattern.row.new');
-
+Route::put('/pattern/undelete/{id}', 'PatternTypeController@undelete')->name('PatternType.undelete');
 Route::resource("PatternType", "PatternTypeController");
 Route::resource("pattern", "PatternController");
 

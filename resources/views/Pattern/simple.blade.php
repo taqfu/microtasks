@@ -37,11 +37,17 @@
 @endforeach
 </table>
 </div>
-<?php
-    $hour = date ("H", strtotime("-7 hours"));
-    $min = date ("i", strtotime("-7 hours"));
-    $sec = date ("s", strtotime("-7 hours"));
-?>
+
+    <form method="POST" action="{{routE('pattern.index')}}">
+        {{csrf_field()}}
+        <input id="new-row" type='submit' value = "Less Simple" class = "btn btn-lg btn btn-link form-control"/>
+    </form>
+    <?php
+        $hour = date ("H", strtotime("-7 hours"));
+        $min = date ("i", strtotime("-7 hours"));
+        $sec = date ("s", strtotime("-7 hours"));
+    ?>
+
     <div id='clock'>
         <span id='hour'><?= $hour; ?> </span>:
         <span id='min'><?= $min; ?> </span>:

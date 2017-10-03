@@ -98,8 +98,18 @@ class PatternTypeController extends Controller
      */
     public function destroy($id)
     {
-        PatternType::destroy($id);
+        $pattern_type = PatternType::find($id);
+        $pattern_type->retired_at = date("Y-m-d H:i:s");
+        $pattern_type->save();
+
         return back();
+    }
+    public function undelete($id){
+      $pattern_type = PatternType::find($id);
+      $pattern_type->retired_at = null;
+      $pattern_type->save();
+
+      return back();
     }
 
 }

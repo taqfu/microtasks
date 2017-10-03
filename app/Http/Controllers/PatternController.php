@@ -15,17 +15,27 @@ class PatternController extends Controller
      */
     public function index()
     {
+      $retired_ids = [];
+      $retired_pattern_types = PatternType::where('retired_at', '!=', null)->get();
+      foreach ($retired_pattern_types as $retired_pattern_type){
+          $retired_ids[] = $retired_pattern_type->id;
+      }
         return view ("Pattern.index", [
-            "patterns"=>Pattern::orderBy('date', 'desc')->orderBy('pattern_type_id', 'asc')->get(),
-            "pattern_types"=>PatternType::orderBy('id')->get(),
+          "patterns"=>Pattern::whereNotIn('pattern_type_id', $retired_ids)->orderBy('date', 'desc')->orderBy('pattern_type_id', 'asc')->get(),
+            "pattern_types"=>PatternType::orderBy('id')->where('retired_at', null)->get(),
 
         ]);
     }
     public function simpleIndex()
     {
+        $retired_ids = [];
+        $retired_pattern_types = PatternType::where('retired_at', '!=', null)->get();
+        foreach ($retired_pattern_types as $retired_pattern_type){
+            $retired_ids[] = $retired_pattern_type->id;
+        }
         return view ("Pattern.simple", [
-            "patterns"=>Pattern::orderBy('date', 'desc')->orderBy('pattern_type_id', 'asc')->get(),
-            "pattern_types"=>PatternType::orderBy('id')->get(),
+            "patterns"=>Pattern::whereNotIn('pattern_type_id', $retired_ids)->orderBy('date', 'desc')->orderBy('pattern_type_id', 'asc')->get(),
+            "pattern_types"=>PatternType::orderBy('id')->where('retired_at', null)->get(),
 
         ]);
     }
@@ -123,7 +133,7 @@ class PatternController extends Controller
     }
 
     public function delete($id){
-        
+
         return view ("Pattern.delete", ['id'=>$id]);
     }
 }
