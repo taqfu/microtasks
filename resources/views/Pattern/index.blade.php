@@ -35,6 +35,9 @@
       <td class='day'>{{$pattern->day}}</td>
     @endif
     <td id='status{{$pattern->id}}' title='{{$pattern->type->name}} - c{{$pattern->cycle}} - d{{$pattern->day}} ' class=' status {{$status_class[$pattern->status]}}'>
+      @if ($pattern->day == 1 && $pattern->status != 2)
+          {{\App\Pattern::fetch_cycle_percentage ($pattern->pattern_type_id, $pattern->cycle)}}%
+      @endif
         <form id='change-status{{$pattern->id}}' method="POST" action="{{route('pattern.update', ['pattern'=>$pattern])}}">
             {{csrf_field()}}
             {{method_field('put')}}

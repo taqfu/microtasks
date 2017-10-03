@@ -38,7 +38,7 @@
 </table>
 </div>
 
-    <form method="POST" action="{{routE('pattern.index')}}">
+    <form method="GET" action="{{routE('pattern.index')}}">
         {{csrf_field()}}
         <input id="new-row" type='submit' value = "Less Simple" class = "btn btn-lg btn btn-link form-control"/>
     </form>
