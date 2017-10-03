@@ -1,9 +1,7 @@
 body.black {
     background-color:black;
 }
-input#new-row{
 
-}
 #clock{
     font-size:100px;
     background-color:black;
@@ -14,6 +12,7 @@ input#new-row{
 .fail{
     background-color:red;
 }
+
 .success{
     background-color:green;
 }
@@ -33,7 +32,7 @@ td.cycle, td.day{
     width:50px;
 }
 td.status:not(table.simple){
-    width:200px;
+   width:200px;
 }
 div.simple{
   height:600px;
@@ -45,7 +44,7 @@ table.simple{
 }
 
 table.simple td{
-    height:50px;
     width:50px;
-    border:2px black solid;
+    height:50px;
+    border:1px black solid;
 }

@@ -50,7 +50,8 @@ class PatternController extends Controller
         //if last row is all status=2 then don't create a new one
         $num_of_days_in_a_cycle=10;
         $last_pattern = Pattern::orderBy('id', 'desc')->first();
-        if($last_pattern->day++>$num_of_days_in_a_cycle){
+		$last_pattern->day++;
+        if($last_pattern->day>$num_of_days_in_a_cycle){
             $last_pattern->day=1;
             $last_pattern->cycle++;
         }
@@ -119,5 +120,10 @@ class PatternController extends Controller
     public function destroy(Pattern $pattern)
     {
         //
+    }
+
+    public function delete($id){
+        
+        return view ("Pattern.delete", ['id'=>$id]);
     }
 }

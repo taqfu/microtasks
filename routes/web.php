@@ -14,9 +14,14 @@
 Route::get('/', function () {
     return redirect (route('pattern.simple'));
 });
+Route::get('/pattern/delete/{id}', 'PatternController@delete')->name('pattern.delete');
 Route::get('/pattern/simple', 'PatternController@simpleIndex')->name('pattern.simple');
 Route::post('pattern/row', 'PatternController@newRow')->name('pattern.row.new');
 
 Route::resource("PatternType", "PatternTypeController");
 Route::resource("pattern", "PatternController");
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

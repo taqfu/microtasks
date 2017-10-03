@@ -4,10 +4,10 @@
 <?php
     $status_class = ["fail", "success", "limbo"];
 ?>
-<form method="GET" action="{{route('PatternType.create')}}" class='inline-form'>
+<form method="GET" action="{{route('PatternType.create')}}" style='display:inline;'>
   <input type='submit' value ='New Pattern Type' class = "btn btn-primary"/>
 </form>
-<form method="GET" action="{{route('pattern.simple')}}" class='inline-form'>
+<form method="GET" action="{{route('pattern.simple')}}" style='display:inline;'>
   <input type='submit' value ='Simple' class = "btn btn-primary"/>
 </form>
 <table border=1>
@@ -23,7 +23,7 @@
 <tr><td colspan="{{count($pattern_types)+3}}">
     <form method="POST" action="{{route('pattern.row.new')}}">
         {{csrf_field()}}
-        <input type='submit' value='+' class = "btn btn-lg btn-primary "/>
+        <input type='submit' value='+' class = "btn btn-primary btn-block "/>
     </form>
 </tr>
 <?php $iteration=0; ?>

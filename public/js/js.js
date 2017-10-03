@@ -1,14 +1,15 @@
 $(document.body).ready(function () {
+    window.setInterval(changeTime, 1000);
+
     $(document).on("click", ".status", function (event) {
         $("form#change-status" + event.target.id.substr(6)).submit();
     });
-    window.setInterval(changeTime, 1000);
+
 });
     function changeTime(){
        hour = $("#hour").html();
        min = $("#min").html();
        sec = $("#sec").html();
-       console.log(hour + ":" + min + ":" + sec);
        sec++;
        if (sec>59){
             min++;

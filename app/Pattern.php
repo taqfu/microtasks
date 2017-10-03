@@ -18,6 +18,6 @@ class Pattern extends Model
             }
         }
 
-        return $sum / count($patterns) * 100;
+        return round($sum / count($patterns) * 100);
     }
 }
